@@ -14,7 +14,6 @@ import Container from "react-bootstrap/Container";
 import { Route, Routes } from "react-router-dom";
 
 // Components
-import NavBar from "./Components/NavBar";
 import HomePage from "./Pages/Home";
 import MovieDetails from "./Pages/MovieDetails";
 
