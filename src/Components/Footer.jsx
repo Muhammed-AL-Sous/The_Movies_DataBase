@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <h1>{t("Welcome to My Website")}</h1>
+  
     </footer>
   );
 };

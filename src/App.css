@@ -9,6 +9,26 @@
 
 /* NavBar Styles */
 
+@media (max-width: 991px) {
+  .navBar {
+    max-height: 120px !important;
+  }
+}
 
+@media (max-width: 767px) {
+  .navBar {
+    max-height: initial !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-brand {
+    justify-content: center;
+  }
+}
+
+.dropdown-toggle::after {
+  margin-right: 0.255em;
+}
 
 /*==== NavBar Styles ====*/

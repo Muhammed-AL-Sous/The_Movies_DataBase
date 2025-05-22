@@ -1,32 +1,26 @@
-// React Hook
-import { useEffect } from "react";
-import { useLoading } from "../Contexts/LoadingContext";
+// External Libraries
+import { motion } from "framer-motion";
 
 const MoviesCardsList = () => {
-  const { setIsLoading, hasFetchedOnce, setHasFetchedOnce } = useLoading();
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        delay: index * 0.1,
+        ease: "easeOut",
+      },
+    }),
+  };
 
-  useEffect(() => {
-    if (hasFetchedOnce) return;
-
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-        const data = await res.json();
-        setHasFetchedOnce(true); // ✅ علم بأن البيانات جُلبت
-      } catch (err) {
-        console.error("Error fetching movies:", err);
-      } finally {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 2000);
-      }
-    };
-
-    fetchData();
-  }, [hasFetchedOnce, setIsLoading, setHasFetchedOnce]);
-
-  return <></>;
+  return (
+    <>
+      <h1>Hello</h1>
+    </>
+  );
 };
 
 export default MoviesCardsList;
