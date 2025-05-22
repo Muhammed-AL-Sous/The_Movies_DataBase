@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import loaderAnimation from "../assets/Not_Foud_Page_Loader.json";
+import loaderAnimation from "../assets/Loaders/Not_Foud_Page_Loader.json";
 
 const Loader = () => {
   return (

@@ -2,12 +2,15 @@
 import { LoadingProvider } from "./Contexts/LoadingContext";
 import NotFoudPageLoader from "./Loaders/NotFoundPageLoader";
 
-// Import React
+// React
 import { Route, Routes } from "react-router-dom";
 
 // Components
 import HomePage from "./Pages/Home";
 import MovieDetails from "./Pages/MovieDetails";
+
+// Css Files
+import "./App.css";
 
 const App = () => {
   return (
