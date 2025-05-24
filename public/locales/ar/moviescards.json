@@ -1,3 +1,6 @@
 {
-  "movie_name": "اسم الفيلم"
+  "movie_name": "اسم الفيلم",
+  "release_date": "تاريخ الإصدار",
+  "vote_count": "عدد الأصوات",
+  "show_details": "عرض التفاصيل"
 }

@@ -44,7 +44,7 @@ const NavBar = () => {
               className="d-inline-block align-top"
               alt="logo"
             />
-            <span className="fs-4 fw-bold">{t("The Move DataBase")}</span>
+            <span className="fs-4 fw-bold">{t("The Movie DataBase")}</span>
           </Navbar.Brand>
 
           <Form className="flex-grow-1 d-flex align-items-center form-navbar">

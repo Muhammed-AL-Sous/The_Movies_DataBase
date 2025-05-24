@@ -1,3 +1,6 @@
 {
-  "movie_name": "Movie Name"
+  "movie_name": "Movie Name",
+  "release_date": "Release Date",
+  "vote_count": "Vote Count",
+  "show_details": "Show Details"
 }

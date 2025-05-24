@@ -3,7 +3,7 @@
   --ash-gray: #bac1b8ff;
   --moonstone: #58a4b0ff;
   --dark-spring-green: #0c7c59ff;
-  --gunmetal: #2b303aff;
+  --gunmetal: #2b303acc;
   --chili-red: #d64933ff;
 }
 
@@ -41,3 +41,62 @@
 }
 
 /*==== NavBar Styles ====*/
+
+/* ===================================================================== */
+
+/* Movies Cards List */
+
+.main-card {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  color: #fff !important;
+}
+
+.overlay-card-body {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--gunmetal);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-card:hover .overlay-card-body {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 575px) {
+  .card-Title {
+    font-size: 15px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .card-text {
+    font-size: 12px !important;
+    margin-bottom: 7px;
+  }
+
+  .btn-details {
+    font-size: 12px !important;
+    margin: 7px 0 0 !important;
+  }
+}
+
+/*==== Movies Cards List ====*/
+
+/* ===================================================================== */

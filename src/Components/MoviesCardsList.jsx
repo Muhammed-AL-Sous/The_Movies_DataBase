@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 
 // Translation
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const MoviesCardsList = ({ moviesCards, IMAGE_URL }) => {
   const { t } = useTranslation(["moviescards", "common"]);
@@ -34,36 +35,44 @@ const MoviesCardsList = ({ moviesCards, IMAGE_URL }) => {
         {moviesCards.length > 0 &&
           moviesCards.map((card, index) => {
             return (
-              <Col xs={12} md={4} lg={3} key={card.id}>
+              <Col xs={6} md={4} lg={3} key={card.id} className="my-2">
                 <motion.div
                   custom={index}
                   variants={cardVariants}
                   initial="hidden"
                   animate="visible"
                 >
-                  <Card className="text-center">
+                  <Card
+                    className="text-center position-relative shadow rounded main-card"
+                    style={{ overflow: "hidden" }}
+                  >
                     <Card.Img
                       variant="top"
                       src={
-                        card.backdrop_path
-                          ? `${IMAGE_URL}${card.backdrop_path}`
+                        card.poster_path
+                          ? `${IMAGE_URL}${card.poster_path}`
                           : "https://via.placeholder.com/300x170?text=No+Image"
                       }
                       alt={card.title}
                       style={{ objectFit: "cover" }}
                     />
 
-                    <Card.Body>
-                      <Card.Title>
+                    <Card.Body className="overlay-card-body">
+                      <Card.Title className="card-Title">
                         {t("movie_name")} : {card.title || "No Title"}
                       </Card.Title>
-                      <Card.Text>
-                        With supporting text below as a natural lead-in to
-                        additional content.
+                      <Card.Text className="card-text">
+                        {t("release_date")} : {card.release_date}
                       </Card.Text>
-                      <Button variant="primary">Go somewhere</Button>
+                      <Card.Text className="card-text">
+                        {t("vote_count")} : {card.vote_count}
+                      </Card.Text>
+                      <Link to={`/movie/${card.id}`}>
+                        <Button className="text-white btn-details" variant="primary" >
+                          {t("show_details")}
+                        </Button>
+                      </Link>
                     </Card.Body>
-                    <Card.Footer className="text-muted">2 days ago</Card.Footer>
                   </Card>
                 </motion.div>
               </Col>
