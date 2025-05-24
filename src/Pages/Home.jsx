@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 // Components
 import NavBar from "../Components/NavBar";
 import MoviesCardsList from "../Components/MoviesCardsList";
-import PaginationList from "../Components/PaginationList";
 import Footer from "../Components/Footer";
 
 // React Hook
@@ -22,9 +21,7 @@ import { useLanguage } from "../Contexts/LanguageContext";
 
 const HomePage = () => {
   const { language } = useLanguage();
-  const { isLoading } = useLoading();
-  const { setIsLoading, hasFetchedOnce, setHasFetchedOnce } = useLoading();
-
+  const { isLoading, setIsLoading } = useLoading();
   const [moviesCards, setMoviesCards] = useState([]);
 
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -32,8 +29,6 @@ const HomePage = () => {
   const IMAGE_URL = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    if (hasFetchedOnce) return;
-
     const getAllMovies = async () => {
       setIsLoading(true);
       try {
@@ -43,9 +38,7 @@ const HomePage = () => {
             language,
           },
         });
-        console.log(response);
-
-        setHasFetchedOnce(true); // ✅ علم بأن البيانات جُلبت
+        setMoviesCards(response.data.results);
       } catch (error) {
         console.error("Error fetching movies:", error);
       } finally {
@@ -56,7 +49,7 @@ const HomePage = () => {
     };
 
     getAllMovies();
-  }, [hasFetchedOnce, setIsLoading, setHasFetchedOnce]);
+  }, [language]);
 
   return isLoading ? (
     <MainLoader />
@@ -68,8 +61,7 @@ const HomePage = () => {
         style={{ margin: "4px auto 0px", borderWidth: "2px" }}
       />
       <Container>
-        <MoviesCardsList moviesCards={moviesCards} />
-        {/* <PaginationList /> */}
+        <MoviesCardsList moviesCards={moviesCards} IMAGE_URL={IMAGE_URL} />
       </Container>
       <Footer />
     </>

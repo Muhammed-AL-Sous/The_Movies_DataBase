@@ -47,14 +47,7 @@ const NavBar = () => {
             <span className="fs-4 fw-bold">{t("The Move DataBase")}</span>
           </Navbar.Brand>
 
-          <Form className="flex-grow-1 d-flex align-items-center">
-            <Form.Control
-              type="search"
-              placeholder={t("navbar:Search")}
-              className="me-2 "
-              aria-label="Search"
-            />
-
+          <Form className="flex-grow-1 d-flex align-items-center form-navbar">
             {/* Switch Light & Dark Mode Button */}
             <div
               style={{
@@ -68,9 +61,6 @@ const NavBar = () => {
               onClick={toggleTheme}
               variant={theme === "light" ? "dark" : "light"}
             >
-              {/* {t("switch_theme", {
-            theme: t(theme === "light" ? "dark" : "light"),
-          })} */}
               {theme === "light" ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -131,6 +121,12 @@ const NavBar = () => {
               </NavDropdown.Item>
             </NavDropdown>
             {/*==== DropDown Language ====*/}
+            <Form.Control
+              type="search"
+              placeholder={t("navbar:Search")}
+              className="me-2 "
+              aria-label="Search"
+            />
           </Form>
         </Container>
       </Navbar>

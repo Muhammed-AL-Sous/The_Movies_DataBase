@@ -13,7 +13,7 @@ i18n
   .init({
     fallbackLng: "en",
     debug: false,
-    ns: ["common", "navbar", "footer", "homepage"], // أسماء الملفات
+    ns: ["common", "navbar", "footer", "homepage", "moviescards"], // أسماء الملفات
     defaultNS: "common", // الافتراضي لو ما حددت namespace
     interpolation: {
       escapeValue: false, // React يقوم بالفعل بالحماية من XSS

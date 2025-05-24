@@ -15,7 +15,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .navBar {
     max-height: initial !important;
   }
@@ -29,6 +29,15 @@
 
 .dropdown-toggle::after {
   margin-right: 0.255em;
+}
+
+@media (max-width: 575px) {
+  .form-navbar {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin: 0 20px;
+    gap: 5px;
+  }
 }
 
 /*==== NavBar Styles ====*/
