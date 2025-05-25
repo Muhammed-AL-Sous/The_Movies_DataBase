@@ -1,0 +1,22 @@
+{
+  "languages": {
+    "English": "الإنجليزية",
+    "Arabic": "العربية",
+    "French": "الفرنسية",
+    "Spanish": "الإسبانية",
+    "Turkish": "التركية",
+    "Japanese": "اليابانية"
+  },
+  "language": "اللغة",
+  "dark": "الداكن",
+  "light": "الفاتح",
+  "switch_theme": "غيّر إلى الوضع {{theme}}",
+  "Welcome to My Website": "أهلا بكم في موقعي الخاص",
+  "go home": "الذهاب للرئيسية",
+  "no details": "لا يوجد تفاصيل لعرضها",
+  "Next": "التالي",
+  "Previous": "السابق",
+  "Oops! The page you’re looking for can’t be found.": "عذرًا، الصفحة التي تبحث عنها غير موجودة",
+  "Error 404": "Error 404",
+  "copyright © all rights reserved 2025 - 2026": "حقوق النشر © جميع الحقوق محفوظة 2025 - 2026"
+}

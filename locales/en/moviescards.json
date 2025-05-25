@@ -1,0 +1,11 @@
+{
+  "movie_name": "Movie Name",
+  "release_date": "Release Date",
+  "vote_count": "Vote Count",
+  "show_details": "Show Details",
+  "genres": "Genres",
+  "production_countries": "Production Countries",
+  "overview": "Overview",
+  "show movie": "Show Movie",
+  "similar movies": "Similar Movies"
+}
