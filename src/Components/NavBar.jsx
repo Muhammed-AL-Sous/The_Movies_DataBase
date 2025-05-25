@@ -15,7 +15,7 @@ import { useLanguage } from "../Contexts/LanguageContext";
 // Import IMG For Logo
 import Logo from "../assets/images/Logo_01.png";
 
-const NavBar = () => {
+const NavBar = ({ search }) => {
   const { theme, toggleTheme } = useTheme();
   const { t } = useTranslation(["navbar", "common"]);
   const { i18n } = useTranslation();
@@ -126,6 +126,9 @@ const NavBar = () => {
               placeholder={t("navbar:Search")}
               className="me-2 "
               aria-label="Search"
+              onChange={(e) => {
+                search(e.target.value);
+              }}
             />
           </Form>
         </Container>

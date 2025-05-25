@@ -38,6 +38,9 @@ const MovieDetails = () => {
   const BASE_URL = "https://api.themoviedb.org/3";
   const IMAGE_URL = "https://image.tmdb.org/t/p/original";
 
+  // ✅ استبعاد الأفلام بدون صور
+  const filteredMovies = similarMovies.filter((card) => card.poster_path);
+
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.95, y: 20 },
     visible: (index) => ({
@@ -207,8 +210,8 @@ const MovieDetails = () => {
         </Row>
 
         <Row className="mt-4">
-          {similarMovies.length > 0 &&
-            similarMovies.map((card, index) => {
+          {filteredMovies.length > 0 &&
+            filteredMovies.map((card, index) => {
               return (
                 <Col xs={6} md={4} lg={3} key={card.id} className="my-2">
                   <motion.div
@@ -216,20 +219,17 @@ const MovieDetails = () => {
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
+                    style={{ height: "100%" }}
                   >
                     <Card
                       className="text-center position-relative shadow rounded main-card"
-                      style={{ overflow: "hidden" }}
+                      style={{ overflow: "hidden", height: "100%" }}
                     >
                       <Card.Img
                         variant="top"
-                        src={
-                          card.poster_path
-                            ? `${IMAGE_URL}${card.poster_path}`
-                            : "https://placehold.co/214x321?text=No+Image"
-                        }
+                        src={`${IMAGE_URL}${card.poster_path}`}
                         alt={card.title}
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "cover", height: "100%" }}
                       />
 
                       <Card.Body className="overlay-card-body">
