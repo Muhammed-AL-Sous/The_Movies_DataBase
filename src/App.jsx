@@ -1,6 +1,6 @@
 // Loader
 import { LoadingProvider } from "./Contexts/LoadingContext";
-import NotFoudPageLoader from "./Loaders/NotFoundPageLoader";
+import NotFound from "./Pages/NotFound";
 
 // React
 import { Route, Routes } from "react-router-dom";
@@ -18,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </LoadingProvider>
   );

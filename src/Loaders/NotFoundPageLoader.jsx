@@ -3,17 +3,10 @@ import loaderAnimation from "../assets/Loaders/Not_Foud_Page_Loader.json";
 
 const Loader = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
+    <div>
       <Lottie
         animationData={loaderAnimation}
-        style={{ width: 150, height: 150 }}
+        style={{ width: 250, height: 250 }}
         loop={true}
       />
     </div>

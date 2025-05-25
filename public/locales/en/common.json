@@ -4,7 +4,8 @@
     "Arabic": "Arabic",
     "French": "French",
     "Spanish": "Spanish",
-    "Turkish": "Turkish"
+    "Turkish": "Turkish",
+    "Japanese": "Japanese"
   },
   "language": "Language",
   "dark": "Dark",
@@ -12,5 +13,9 @@
   "switch_theme": "Switch to {{theme}} Mode",
   "Welcome to My Website": "Welcome to My Website",
   "go home": "Go Home",
-  "no details": "No Details"
+  "no details": "No Details",
+  "Next": "Next",
+  "Previous": "Previous",
+  "Oops! The page you’re looking for can’t be found.": "Oops! The page you’re looking for can’t be found.",
+  "Error 404": "خطأ من النوع 404"
 }

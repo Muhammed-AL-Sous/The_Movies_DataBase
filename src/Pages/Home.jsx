@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 // Components
 import NavBar from "../Components/NavBar";
 import MoviesCardsList from "../Components/MoviesCardsList";
+import PaginationList from "../Components/PaginationList";
 import Footer from "../Components/Footer";
 
 // React Hook
@@ -22,13 +23,19 @@ import { useLanguage } from "../Contexts/LanguageContext";
 const HomePage = () => {
   const { language } = useLanguage();
   const { isLoading, setIsLoading } = useLoading();
+
   const [moviesCards, setMoviesCards] = useState([]);
   const [searchedMovies, setSearchedMovies] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isSearching, setIsSearching] = useState(false);
+  const [lastSearchQuery, setLastSearchQuery] = useState("");
 
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   const BASE_URL = "https://api.themoviedb.org/3";
   const IMAGE_URL = "https://image.tmdb.org/t/p/original";
 
+  // جلب كل الأفلام
   const getAllMovies = async () => {
     setIsLoading(true);
     try {
@@ -36,11 +43,18 @@ const HomePage = () => {
         params: {
           api_key: API_KEY,
           language,
+          page: 1,
         },
       });
-      setMoviesCards(response.data.results);
+
+      if (response?.data?.results) {
+        setCurrentPage(0);
+        setIsSearching(false);
+        setMoviesCards(response.data.results);
+        setPageCount(Math.min(response.data.total_pages, 500));
+      }
     } catch (error) {
-      console.error("Error fetching movies:", error);
+      console.error("Error Fetching All Movies :", error);
     } finally {
       setTimeout(() => {
         setIsLoading(false);
@@ -52,9 +66,12 @@ const HomePage = () => {
     getAllMovies();
   }, [language]);
 
+  // البحث عن الأفلام
   const search = async (words) => {
     if (words === "") {
-      setSearchedMovies([]); // إفراغ نتائج البحث
+      setSearchedMovies([]);
+      setIsSearching(false);
+      setLastSearchQuery("");
     } else {
       try {
         const response = await axios.get(`${BASE_URL}/search/movie`, {
@@ -62,12 +79,55 @@ const HomePage = () => {
             api_key: API_KEY,
             language,
             query: words,
+            page: 1,
           },
         });
-        setSearchedMovies(response.data.results);
+
+        if (response?.data?.results) {
+          setIsSearching(true);
+          setLastSearchQuery(words);
+          setCurrentPage(0);
+          setSearchedMovies(response.data.results);
+          setPageCount(Math.min(response.data.total_pages, 500));
+        }
       } catch (error) {
-        console.error("Error fetching movies:", error);
+        console.error("Error Fetching Movies By Search :", error);
       }
+    }
+  };
+
+  // الانتقال بين الصفحات
+  const getCurrentPage = async (page) => {
+    try {
+      const url = isSearching
+        ? `${BASE_URL}/search/movie`
+        : `${BASE_URL}/discover/movie`;
+
+      const params = {
+        api_key: API_KEY,
+        language,
+        page,
+      };
+
+      if (isSearching) {
+        params.query = lastSearchQuery;
+      }
+
+      const response = await axios.get(url, { params });
+
+      if (response?.data?.results) {
+        setCurrentPage(page - 1);
+
+        if (isSearching) {
+          setSearchedMovies(response.data.results);
+        } else {
+          setMoviesCards(response.data.results);
+        }
+
+        setPageCount(Math.min(response.data.total_pages, 500));
+      }
+    } catch (error) {
+      console.error("Error Fetching Current Page :", error);
     }
   };
 
@@ -81,11 +141,23 @@ const HomePage = () => {
         style={{ margin: "4px auto 0px", borderWidth: "2px" }}
       />
       <Container>
-        <MoviesCardsList
-          moviesCards={searchedMovies.length > 0 ? searchedMovies : moviesCards}
-          IMAGE_URL={IMAGE_URL}
-        />
+        {((isSearching && searchedMovies.length > 0) ||
+          (!isSearching && moviesCards.length > 0)) && (
+          <>
+            <MoviesCardsList
+              moviesCards={isSearching ? searchedMovies : moviesCards}
+              IMAGE_URL={IMAGE_URL}
+            />
+            {pageCount > 1 && (
+              <PaginationList
+                getCurrentPage={getCurrentPage}
+                pageCount={pageCount}
+              />
+            )}
+          </>
+        )}
       </Container>
+
       <Footer />
     </>
   );

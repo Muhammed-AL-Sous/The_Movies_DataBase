@@ -106,3 +106,13 @@
 /*==== Movies Cards List ====*/
 
 /* ===================================================================== */
+
+/* Pagination Component */
+
+.pagination .page-link {
+  border-radius: 0 !important;
+}
+
+/*==== Pagination Component ====*/
+
+/* ===================================================================== */

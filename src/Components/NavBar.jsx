@@ -1,5 +1,5 @@
 // React BootStrap
-import { Navbar, Container, Button, NavDropdown, Nav } from "react-bootstrap";
+import { Navbar, Container, Button, NavDropdown } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 // Theme Dark & Light Mode
@@ -44,7 +44,7 @@ const NavBar = ({ search }) => {
               className="d-inline-block align-top"
               alt="logo"
             />
-            <span className="fs-4 fw-bold">{t("The Movie DataBase")}</span>
+            <span className="fs-4 fw-bold">{t("The Movies DataBase")}</span>
           </Navbar.Brand>
 
           <Form className="flex-grow-1 d-flex align-items-center form-navbar">
