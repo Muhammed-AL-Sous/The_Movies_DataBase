@@ -27,7 +27,7 @@ const MoviesCardsList = ({ moviesCards, IMAGE_URL }) => {
       },
     }),
   };
-  console.log("Movies:", JSON.stringify(moviesCards, null, 2));
+  // console.log("Movies:", JSON.stringify(moviesCards, null, 2));
 
   return (
     <>
@@ -51,7 +51,7 @@ const MoviesCardsList = ({ moviesCards, IMAGE_URL }) => {
                       src={
                         card.poster_path
                           ? `${IMAGE_URL}${card.poster_path}`
-                          : "https://via.placeholder.com/300x170?text=No+Image"
+                          : "https://placehold.co/214x321?text=No+Image"
                       }
                       alt={card.title}
                       style={{ objectFit: "cover" }}
@@ -68,7 +68,10 @@ const MoviesCardsList = ({ moviesCards, IMAGE_URL }) => {
                         {t("vote_count")} : {card.vote_count}
                       </Card.Text>
                       <Link to={`/movie/${card.id}`}>
-                        <Button className="text-white btn-details" variant="primary" >
+                        <Button
+                          className="text-white btn-details"
+                          variant="primary"
+                        >
                           {t("show_details")}
                         </Button>
                       </Link>

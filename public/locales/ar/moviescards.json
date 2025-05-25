@@ -2,5 +2,10 @@
   "movie_name": "اسم الفيلم",
   "release_date": "تاريخ الإصدار",
   "vote_count": "عدد الأصوات",
-  "show_details": "عرض التفاصيل"
+  "show_details": "عرض التفاصيل",
+  "genres": "الأنواع",
+  "production_countries": "دول الإنتاج",
+  "overview": "نبذة عن الفيلم",
+  "show movie": "مشاهدة الفيلم",
+  "similar movies": "أفلام مشابهة"
 }

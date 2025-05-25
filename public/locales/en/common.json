@@ -1,9 +1,16 @@
 {
-  "Welcome to My Website": "Welcome to My Website",
-  "switch_theme": "Switch to {{theme}} Mode",
+  "languages": {
+    "English": "English",
+    "Arabic": "Arabic",
+    "French": "French",
+    "Spanish": "Spanish",
+    "Turkish": "Turkish"
+  },
   "language": "Language",
-  "arabic": "Arabic",
-  "english": "English",
   "dark": "Dark",
-  "light": "Light"
+  "light": "Light",
+  "switch_theme": "Switch to {{theme}} Mode",
+  "Welcome to My Website": "Welcome to My Website",
+  "go home": "Go Home",
+  "no details": "No Details"
 }

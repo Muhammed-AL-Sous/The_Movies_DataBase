@@ -1,9 +1,16 @@
 {
-  "Welcome to My Website": "أهلا بكم في موقعي الخاص",
-  "switch_theme": "غيّر إلى الوضع {{theme}}",
+  "languages": {
+    "English": "الإنجليزية",
+    "Arabic": "العربية",
+    "French": "الفرنسية",
+    "Spanish": "الإسبانية",
+    "Turkish": "التركية"
+  },
   "language": "اللغة",
-  "arabic": "العربية",
-  "english": "الإنجليزية",
   "dark": "الداكن",
-  "light": "الفاتح"
+  "light": "الفاتح",
+  "switch_theme": "غيّر إلى الوضع {{theme}}",
+  "Welcome to My Website": "أهلا بكم في موقعي الخاص",
+  "go home": "الذهاب للرئيسية",
+  "no details": "لا يوجد تفاصيل لعرضها"
 }
