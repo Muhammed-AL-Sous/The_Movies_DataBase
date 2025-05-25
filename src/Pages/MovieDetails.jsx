@@ -24,7 +24,10 @@ import axios from "axios";
 
 // Language
 import { useLanguage } from "../Contexts/LanguageContext";
+
+// Components
 import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
 
 const MovieDetails = () => {
   const { t } = useTranslation(["moviescards", "common"]);
@@ -69,7 +72,7 @@ const MovieDetails = () => {
             },
           }
         );
-        console.log(response.data);
+        // console.log(response.data);
         setCurrentMovie(response.data);
         // setCurrentMovie();
       } catch (error) {
@@ -96,7 +99,7 @@ const MovieDetails = () => {
             },
           }
         );
-        console.log(response.data.results);
+        // console.log(response.data.results);
         setSimilarMovies(response.data.results);
       } catch (error) {
         console.log("Error fetching similar movies:", error);
@@ -127,6 +130,7 @@ const MovieDetails = () => {
                   `${IMAGE_URL}${currentMovie.poster_path}` ||
                   `${IMAGE_URL}${currentMovie.backdrop_path}`
                 }
+                style={{ width: "100%", height: "100%" }}
               />
             </Card>
           </Col>
@@ -258,6 +262,11 @@ const MovieDetails = () => {
             })}
         </Row>
       </Container>
+      <hr
+        className="w-75"
+        style={{ margin: "20px auto", borderWidth: "2px" }}
+      />
+      <Footer />
     </>
   );
 };

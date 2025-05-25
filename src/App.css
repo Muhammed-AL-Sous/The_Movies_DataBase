@@ -116,3 +116,14 @@
 /*==== Pagination Component ====*/
 
 /* ===================================================================== */
+
+/* Footer Component */
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/*==== Footer Component ====*/
+/* ===================================================================== */

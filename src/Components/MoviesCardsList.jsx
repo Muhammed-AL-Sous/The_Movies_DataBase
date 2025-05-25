@@ -13,7 +13,10 @@ import { useTranslation } from "react-i18next";
 // React Router Dom
 import { Link } from "react-router-dom";
 
-const MoviesCardsList = ({ moviesCards = [], IMAGE_URL }) => {
+// import Skeleton Component
+import MovieCardSkeleton from "../Components/MovieCardSkeleton";
+
+const MoviesCardsList = ({ moviesCards = [], IMAGE_URL, isCardsLoading }) => {
   const { t } = useTranslation(["moviescards", "common"]);
 
   const cardVariants = {
@@ -34,7 +37,13 @@ const MoviesCardsList = ({ moviesCards = [], IMAGE_URL }) => {
 
   return (
     <Row className="mt-4">
-      {filteredMovies.length > 0 ? (
+      {isCardsLoading ? (
+        Array.from({ length: 8 }).map((_, index) => (
+          <Col xs={6} md={4} lg={3} key={index} className="my-2">
+            <MovieCardSkeleton />
+          </Col>
+        ))
+      ) : filteredMovies.length > 0 ? (
         filteredMovies.map((card, index) => (
           <Col xs={6} md={4} lg={3} key={card.id} className="my-2">
             <motion.div

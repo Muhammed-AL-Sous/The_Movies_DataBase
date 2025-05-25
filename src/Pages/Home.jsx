@@ -20,6 +20,9 @@ import axios from "axios";
 // Language
 import { useLanguage } from "../Contexts/LanguageContext";
 
+// Optional Icon (إذا أردت استخدام أيقونة مع الرسالة)
+import { FaSadTear } from "react-icons/fa";
+
 const HomePage = () => {
   const { language } = useLanguage();
   const { isLoading, setIsLoading } = useLoading();
@@ -141,23 +144,42 @@ const HomePage = () => {
         style={{ margin: "4px auto 0px", borderWidth: "2px" }}
       />
       <Container>
-        {((isSearching && searchedMovies.length > 0) ||
-          (!isSearching && moviesCards.length > 0)) && (
-          <>
-            <MoviesCardsList
-              moviesCards={isSearching ? searchedMovies : moviesCards}
-              IMAGE_URL={IMAGE_URL}
-            />
-            {pageCount > 1 && (
-              <PaginationList
-                getCurrentPage={getCurrentPage}
-                pageCount={pageCount}
+        {isSearching && searchedMovies.length === 0 ? (
+          <div className="text-center py-5">
+            <FaSadTear size={50} color="#888" className="mb-3" />
+            <h3>
+              {language === "ar"
+                ? "لم يتم العثور على نتائج."
+                : "No results found."}
+            </h3>
+            <p>
+              {language === "ar"
+                ? "حاول البحث بكلمات مختلفة."
+                : "Try searching with different keywords."}
+            </p>
+          </div>
+        ) : (
+          ((isSearching && searchedMovies.length > 0) ||
+            (!isSearching && moviesCards.length > 0)) && (
+            <>
+              <MoviesCardsList
+                moviesCards={isSearching ? searchedMovies : moviesCards}
+                IMAGE_URL={IMAGE_URL}
               />
-            )}
-          </>
+              {pageCount > 1 && (
+                <PaginationList
+                  getCurrentPage={getCurrentPage}
+                  pageCount={pageCount}
+                />
+              )}
+            </>
+          )
         )}
       </Container>
-
+      <hr
+        className="w-75"
+        style={{ margin: "20px auto", borderWidth: "2px" }}
+      />
       <Footer />
     </>
   );
