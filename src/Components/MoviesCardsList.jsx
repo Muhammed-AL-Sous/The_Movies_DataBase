@@ -61,8 +61,10 @@ const MoviesCardsList = ({ moviesCards = [], IMAGE_URL, isCardsLoading }) => {
                   variant="top"
                   src={`${IMAGE_URL}${card.poster_path}`}
                   alt={card.title}
+                  loading="lazy" // لتحميل الصور عند اقترابها من الشاشة
                   style={{ objectFit: "cover", height: "100%" }}
                 />
+
                 <Card.Body className="overlay-card-body">
                   <Card.Title className="card-Title">
                     {t("movie_name")} : {card.title || "No Title"}

@@ -16,26 +16,28 @@ const PaginationList = ({ pageCount, getCurrentPage, currentPage }) => {
   };
 
   return (
-    <ReactPaginate
-      breakLabel="..."
-      nextLabel={t("Next")}
-      onPageChange={handlePageClick}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={2}
-      pageCount={pageCount}
-      forcePage={currentPage}
-      previousLabel={t("Previous")}
-      containerClassName={"pagination justify-content-center p-3"}
-      pageClassName={"page-item"}
-      pageLinkClassName={"page-link"}
-      previousClassName={"page-item"}
-      nextClassName={"page-item"}
-      previousLinkClassName={"page-link"}
-      nextLinkClassName={"page-link"}
-      breakClassName={"page-item"}
-      breakLinkClassName={"page-link"}
-      activeClassName={"active"}
-    />
+    <div className="pagination-wrapper">
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel={t("Next")}
+        onPageChange={handlePageClick}
+        marginPagesDisplayed={window.innerWidth <= 768 ? 1 : 2}
+        pageRangeDisplayed={window.innerWidth <= 768 ? 1 : 2}
+        pageCount={pageCount}
+        forcePage={currentPage}
+        previousLabel={t("Previous")}
+        containerClassName="pagination justify-content-center p-3"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        previousClassName="page-item"
+        nextClassName="page-item"
+        previousLinkClassName="page-link"
+        nextLinkClassName="page-link"
+        breakClassName="page-item"
+        breakLinkClassName="page-link"
+        activeClassName="active"
+      />
+    </div>
   );
 };
 

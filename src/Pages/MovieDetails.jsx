@@ -39,7 +39,8 @@ const MovieDetails = () => {
 
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   const BASE_URL = "https://api.themoviedb.org/3";
-  const IMAGE_URL = "https://image.tmdb.org/t/p/original";
+  // const IMAGE_URL = "https://image.tmdb.org/t/p/original";
+  const IMAGE_URL = "https://image.tmdb.org/t/p/w500"; // أو w500 حسب الجودة التي تناسبك
 
   // ✅ استبعاد الأفلام بدون صور
   const filteredMovies = similarMovies.filter((card) => card.poster_path);
@@ -233,6 +234,7 @@ const MovieDetails = () => {
                         variant="top"
                         src={`${IMAGE_URL}${card.poster_path}`}
                         alt={card.title}
+                        loading="lazy" // لتحميل الصور عند اقترابها من الشاشة
                         style={{ objectFit: "cover", height: "100%" }}
                       />
 

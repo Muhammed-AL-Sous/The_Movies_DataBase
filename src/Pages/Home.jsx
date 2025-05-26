@@ -36,7 +36,8 @@ const HomePage = () => {
 
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   const BASE_URL = "https://api.themoviedb.org/3";
-  const IMAGE_URL = "https://image.tmdb.org/t/p/original";
+  // const IMAGE_URL = "https://image.tmdb.org/t/p/original";
+  const IMAGE_URL = "https://image.tmdb.org/t/p/w500"; // أو w500 حسب الجودة التي تناسبك
 
   // جلب كل الأفلام
   const getAllMovies = async () => {
@@ -165,11 +166,13 @@ const HomePage = () => {
               <MoviesCardsList
                 moviesCards={isSearching ? searchedMovies : moviesCards}
                 IMAGE_URL={IMAGE_URL}
+                isCardsLoading={isLoading}
               />
               {pageCount > 1 && (
                 <PaginationList
                   getCurrentPage={getCurrentPage}
                   pageCount={pageCount}
+                  currentPage={currentPage}
                 />
               )}
             </>

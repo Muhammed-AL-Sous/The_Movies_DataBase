@@ -109,8 +109,39 @@
 
 /* Pagination Component */
 
+.pagination-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
 .pagination .page-link {
   border-radius: 0 !important;
+}
+
+/* تأكد أن الحاوية لا تخرج عن الشاشة */
+.pagination {
+  /* flex-wrap: wrap; */
+  flex-shrink: 1;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ضبط العنصر ليناسب الموبايل */
+.pagination .page-item {
+  margin: 2px;
+}
+
+/* إصلاح التمدد */
+.pagination .page-link {
+  min-width: 36px;
+  padding: 6px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* إخفاء شريط التمرير الأفقي */
+.pagination::-webkit-scrollbar {
+  display: none;
 }
 
 /*==== Pagination Component ====*/
